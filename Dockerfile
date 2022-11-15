@@ -18,8 +18,8 @@ ENV ENCRYPTED_ONLY=1
 #COPY /root /
 
 # ports and volumes
-EXPOSE 51820/udp
-EXPOSE 51821/tcp
+#EXPOSE 51820/udp
+#EXPOSE 51821/tcp
 
 VOLUME $PWD/data
 VOLUME $PWD/data:/data
