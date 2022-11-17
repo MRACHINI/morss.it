@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  rustdesk-server:
+    container_name: rustdesk-server
+    ports:
+      - 21115:21115
+      - 21116:21116
+      - 21116:21116/udp
+      - 21117:21117
+      - 21118:21118
+      - 21119:21119
+    image: rustdesk/rustdesk-server-s6:latest
+    environment:
+      - "RELAY=rd.rachini.com:21117"
+      - "ENCRYPTED_ONLY=1"
+      - "DB_URL=/db/db_v2.sqlite3"
+    volumes:
+      - ./db:/db
+    restart: unless-stopped
+    secrets:
+      - HYnE8faYKtpz8Fm2ZOAojTbmUG581pu6xqHnSAOjLvk=
+      - 0WTUwlgHB4PTI16E2Mqmc9SFEzW0UnnmNk526POPragdicTx9pgq2nPwWbZk4CiNNuZQbnzWm7rGoedIA6Mu+Q==
+
+secrets:
+  key_pub:
+    file: secrets/id_ed25519.pub
+  key_priv:
+    file: secrets/id_ed25519      
