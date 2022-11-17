@@ -15,15 +15,8 @@ services:
       - "RELAY=rd.rachini.com:21117"
       - "ENCRYPTED_ONLY=1"
       - "DB_URL=/db/db_v2.sqlite3"
+      - "KEY_PRIV=0WTUwlgHB4PTI16E2Mqmc9SFEzW0UnnmNk526POPragdicTx9pgq2nPwWbZk4CiNNuZQbnzWm7rGoedIA6Mu+Q=="
+      - "KEY_PUB=HYnE8faYKtpz8Fm2ZOAojTbmUG581pu6xqHnSAOjLvk="
     volumes:
       - ./db:/db
     restart: unless-stopped
-    secrets:
-      - HYnE8faYKtpz8Fm2ZOAojTbmUG581pu6xqHnSAOjLvk=
-      - 0WTUwlgHB4PTI16E2Mqmc9SFEzW0UnnmNk526POPragdicTx9pgq2nPwWbZk4CiNNuZQbnzWm7rGoedIA6Mu+Q==
-
-secrets:
-  key_pub:
-    file: secrets/id_ed25519.pub
-  key_priv:
-    file: secrets/id_ed25519      
