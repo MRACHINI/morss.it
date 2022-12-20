@@ -1,0 +1,5 @@
+services:
+    web:
+        image: pictuga/morss
+        ports:
+            - '8000:8000'
