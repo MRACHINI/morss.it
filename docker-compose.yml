@@ -1,22 +1,7 @@
 version: '3'
 
 services:
-  rustdesk-server:
-    container_name: rustdesk-server
-    ports:
-      - 21115:21115
-      - 21116:21116
-      - 21116:21116/udp
-      - 21117:21117
-      - 21118:21118
-      - 21119:21119
-    image: rustdesk/rustdesk-server-s6:latest
-    environment:
-      - "RELAY=rd.rachini.com:21117"
-      - "ENCRYPTED_ONLY=1"
-      - "DB_URL=/db/db_v2.sqlite3"
-      - "KEY_PRIV=0WTUwlgHB4PTI16E2Mqmc9SFEzW0UnnmNk526POPragdicTx9pgq2nPwWbZk4CiNNuZQbnzWm7rGoedIA6Mu+Q=="
-      - "KEY_PUB=HYnE8faYKtpz8Fm2ZOAojTbmUG581pu6xqHnSAOjLvk="
-    volumes:
-      - ./db:/db
-    restart: unless-stopped
+    app:
+        image: pictuga/morss
+        ports:
+            - '8000:8000'
